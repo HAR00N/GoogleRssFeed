@@ -1,24 +1,32 @@
 <template>
   <v-app>
-    <dashboard-core-app-bar />
+    <app-bar @isDrawer="isDrawer" />
 
-    <dashboard-core-drawer />
+    <core-drawer :expandOnHover="expandOnHover" />
 
     <dashboard-core-footer />
   </v-app>
 </template>
 
 <script>
-  export default {
-    components: {
-      DashboardCoreAppBar: () => import('./core/AppBar'),
-      DashboardCoreDrawer: () => import('./core/Drawer'),
-      // DashboardCoreSettings: () => import('./components/core/Settings'),
-      DashboardCoreFooter: () => import('./core/Footer'),
-    },
+import AppBar from "@/components/core/AppBar.vue"
+import CoreDrawer from "@/components/core/Drawer.vue"
 
-    data: () => ({
-      expandOnHover: false,
-    }),
-  }
+export default {
+  components: {
+    AppBar,
+    CoreDrawer,
+    DashboardCoreFooter: () => import('./core/Footer'),
+  },
+
+  data: () => ({
+    expandOnHover: false,      
+  }),
+  methods: {
+    isDrawer(isDrawer) {
+      let vm = this;
+      vm.expandOnHover = !isDrawer;
+    }
+  },
+}
 </script>
