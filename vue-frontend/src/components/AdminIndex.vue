@@ -4,6 +4,9 @@
 
     <core-drawer :expandOnHover="expandOnHover" />
 
+    <v-main>
+      <router-view/>
+    </v-main>
     <dashboard-core-footer />
   </v-app>
 </template>

@@ -5,6 +5,7 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'hash',
+  base: '/',
   routes: [
     {
       path: '/',
@@ -13,37 +14,24 @@ export default new Router({
         {
           name: 'Home',
           path: '',
-          component: () => import('@/views/HomeView'),
+          component: () => import('@/views/pages/DashBoard'),
         },
         {
-          name: 'Stack',
-          path: '/pages/testpage',
-          component: () => import('@/views/pages/TestPage'),
+          name: 'SeviceHandle',
+          path: '/pages/ServiceHandle',
+          component: () => import('@/views/pages/ServiceHandle'),
+        },
+        {
+          name: 'ServiceRequest',
+          path: '/pages/SR/ServiceRequest',
+          component: () => import('@/views/pages/SR/ServiceRequest'),
+        },
+        {
+          name: 'ServiceComplain',
+          path: '/pages/SR/ServiceComplain',
+          component: () => import('@/views/pages/SR/ServiceComplain'),
         },
       ],
     },
   ],
 })
-
-// const router = new VueRouter({
-//   mode: 'history',
-//   base: process.env.BASE_URL,
-//   routes
-// })
-
-// const routes = [
-//   {
-//     path: '/',
-//     name: 'home',
-//     component: HomeView
-//   },
-//   {
-//     path: '/about',
-//     name: 'about',
-    
-//     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-//   }
-// ]
-
-
-

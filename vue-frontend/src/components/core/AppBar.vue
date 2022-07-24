@@ -3,6 +3,7 @@
     app
     color="#094ca1"
     clipped-left
+    height="50"
   >
     <v-btn 
       color="transparent" 
@@ -27,11 +28,17 @@
     <v-spacer></v-spacer>
 
     <v-btn        
-      text
-      color="white"
+      color="#165BB4"
+      class="mr-4"
+      rounded
+      elevation="0"
     >
-      <span class="mr-2">Client Page</span>
-      <v-icon>mdi-open-in-new</v-icon>
+      <v-icon color="white">mdi-open-in-new</v-icon>
+      <span class="ml-2 white--text">Client Page</span>
+    </v-btn>
+
+    <v-btn small fab color="#165BB4" elevation="0">
+      <v-icon color="white">mdi-logout-variant</v-icon>
     </v-btn>
   </v-app-bar>
 </template>
