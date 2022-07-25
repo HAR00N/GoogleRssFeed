@@ -31,6 +31,11 @@ export default new Router({
           path: '/pages/SR/ServiceComplain',
           component: () => import('@/views/pages/SR/ServiceComplain'),
         },
+        {
+          name: 'GoogleNews',
+          path: '/pages/GoogleNews',
+          component: () => import('@/views/pages/GoogleRss'),
+        },
       ],
     },
   ],

@@ -5,4 +5,5 @@ import '@/css/default.css'
 Vue.use(Vuetify);
 
 export default new Vuetify({
+
 });

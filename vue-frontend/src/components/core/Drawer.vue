@@ -2,7 +2,7 @@
   <v-navigation-drawer
   :expand-on-hover="expandOnHover"
   floating 
-  color=""
+  color="#67A588"
   clipped
   app
   >
@@ -19,8 +19,8 @@
 			:href="item.href"
 			:ripple="false"
 			:target="item.target"
-			active-class=""
-			class="mx-4"
+			active-class="menulist"
+			class="mx-4 white--text"
 			>
 			<v-list-item-icon>
 				<v-icon>{{item.icon}}</v-icon>
@@ -37,7 +37,8 @@
 			:prepend-icon="item.icon"
 			no-action
 			active-class=""
-			class="mx-4"
+			class="mx-4 white--text"
+			color="white"
 			:ripple="false"
 			>
 			<template v-slot:activator>
@@ -51,7 +52,8 @@
 				:key="child.idx"
 				:to="child.to"
 				:ripple="false"
-				active-class="">
+				active-class="menulist"
+				color="white">
 
 				<v-list-item-content>
 					<v-list-item-title v-text="child.title"></v-list-item-title>
@@ -104,6 +106,13 @@ export default {
 			},
 			{
 				idx: 4,
+				icon: 'mdi-newspaper-variant-outline',
+				title: 'Google News',
+				active: false,
+				to: '/pages/GoogleNews',
+			},
+			{
+				idx: 5,
 				icon: 'mdi-github',
 				title: 'HAR00N',
 				// href: 'https://github.com/HAR00N',

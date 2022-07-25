@@ -1,0 +1,3 @@
+.color-logo {
+    filter: invert(60%) sepia(12%) saturate(902%) hue-rotate(100deg) brightness(95%) contrast(96%);
+}

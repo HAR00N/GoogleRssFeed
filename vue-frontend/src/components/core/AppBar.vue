@@ -1,26 +1,27 @@
 <template>
   <v-app-bar
     app
-    color="#094ca1"
+    color="white"
     clipped-left
     height="50"
+    elevation="0"
   >
     <v-btn 
       color="transparent" 
-      class="ml-1 px-0"
+      class="mx-1 px-0"
       elevation="0" 
       small
       @click="setDrawer()"
       >
-        <v-icon v-if="drawer" color="white"> mdi-text </v-icon>
-        <v-icon v-else color="white"> mdi-menu </v-icon>
+        <v-icon v-if="drawer" color="#67A588"> mdi-text </v-icon>
+        <v-icon v-else color="#67A588"> mdi-menu </v-icon>
     </v-btn>
 
     <div class="d-flex align-center">
       <v-img alt= "Dain Logo"
-      class="shrink"
+      class="color-logo"
       contain
-      src="@/assets/DainWhite.png"
+      src="@/assets/dainleaders_white.svg"
       width="160"
       />
     </div>
@@ -28,7 +29,7 @@
     <v-spacer></v-spacer>
 
     <v-btn        
-      color="#165BB4"
+      color="#67A588"
       class="mr-4"
       rounded
       elevation="0"
@@ -37,7 +38,7 @@
       <span class="ml-2 white--text">Client Page</span>
     </v-btn>
 
-    <v-btn small fab color="#165BB4" elevation="0">
+    <v-btn small fab color="#67A588" elevation="0">
       <v-icon color="white">mdi-logout-variant</v-icon>
     </v-btn>
   </v-app-bar>
