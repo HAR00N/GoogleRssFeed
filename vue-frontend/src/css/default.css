@@ -1,2 +1,6 @@
 @import url('@/css/dainFront/drawer.css');
 @import url('@/css/dainFront/appbar.css');
+
+.v-main__wrap {
+    padding: 10px;
+}

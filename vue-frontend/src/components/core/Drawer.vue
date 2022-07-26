@@ -11,7 +11,10 @@
 	
 	<v-list 
 		v-for="item in menuList" 
-		:key="item.idx">
+		:key="item.idx"
+		expand
+		class="pa-2 pr-0 rounded-l-xl"
+		>
 
 		<v-list-item 
 			v-if="!item.child"
@@ -19,13 +22,13 @@
 			:href="item.href"
 			:ripple="false"
 			:target="item.target"
-			active-class="menulist"
-			class="mx-4 white--text"
+			active-class="menulist teal--text"
+			class="ml-4 rounded-l-xl"
 			>
 			<v-list-item-icon>
 				<v-icon>{{item.icon}}</v-icon>
 			</v-list-item-icon>
-			<v-list-item-title v-text="item.title">
+			<v-list-item-title class="" v-text="item.title">
 
 			</v-list-item-title>
 
@@ -37,7 +40,7 @@
 			:prepend-icon="item.icon"
 			no-action
 			active-class=""
-			class="mx-4 white--text"
+			class="ml-4 pr-0"
 			color="white"
 			:ripple="false"
 			>
@@ -52,11 +55,12 @@
 				:key="child.idx"
 				:to="child.to"
 				:ripple="false"
-				active-class="menulist"
-				color="white">
+				active-class="menulist teal--text"
+				class="pr-0 rounded-l-xl"
+				>
 
 				<v-list-item-content>
-					<v-list-item-title v-text="child.title"></v-list-item-title>
+					<v-list-item-title v-text="child.title" class="childitem"></v-list-item-title>
 				</v-list-item-content>
 
 			</v-list-item>
@@ -78,7 +82,7 @@ export default {
 			default: false,
 		},
 	},
-	data: ()=> ({
+	data: () => ({
 		menuList: [
 			{
 				idx: 1,

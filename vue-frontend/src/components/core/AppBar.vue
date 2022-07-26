@@ -4,14 +4,15 @@
     color="white"
     clipped-left
     height="50"
-    elevation="0"
+    elevation="2"
   >
     <v-btn 
       color="transparent" 
-      class="mx-1 px-0"
+      class="mx-1 px-0 btn-drawer"
       elevation="0" 
       small
       @click="setDrawer()"
+      fab
       >
         <v-icon v-if="drawer" color="#67A588"> mdi-text </v-icon>
         <v-icon v-else color="#67A588"> mdi-menu </v-icon>
