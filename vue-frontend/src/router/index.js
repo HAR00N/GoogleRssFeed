@@ -8,35 +8,72 @@ export default new Router({
   base: '/',
   routes: [
     {
-      path: '/',
+      path: '',
+      redirect: 'admin/sr',
+    },
+    {
+      path: '/admin',
+      name: '관리자 페이지',
       component: () => import('@/components/AdminIndex'),
       children: [
         {
-          name: 'Home',
+          name: '관리자 시작 페이지',
           path: '',
-          component: () => import('@/views/pages/DashBoard'),
+          redirect: '/admin/sr'
         },
         {
-          name: 'SeviceHandle',
-          path: '/pages/ServiceHandle',
-          component: () => import('@/views/pages/ServiceHandle'),
+          name: 'SR 처리',
+          path: '/admin/sr',
+          component: () => import('@/views/pages/admin/ServiceTreat.vue'),
         },
         {
-          name: 'ServiceRequest',
-          path: '/pages/SR/ServiceRequest',
-          component: () => import('@/views/pages/SR/ServiceRequest'),
+          name: '대시보드',
+          path: '/admin/dashboard',
+          component: () => import('@/views/pages/admin/DashBoard.vue'),
         },
         {
-          name: 'ServiceComplain',
-          path: '/pages/SR/ServiceComplain',
-          component: () => import('@/views/pages/SR/ServiceComplain'),
+          name: '사용자 관리',
+          path: '/admin/system/user',
+          component: () => import('@/views/pages/admin/SystemManage/UserManage.vue'),
         },
         {
-          name: 'GoogleNews',
-          path: '/pages/GoogleNews',
-          component: () => import('@/views/pages/GoogleRss'),
+          name: '권한 관리',
+          path: '/admin/system/role',
+          component: () => import('@/views/pages/admin/SystemManage/RoleManage.vue'),
         },
+        {
+          name: '운영팀 관리 1',
+          path: '/admin/team/no1',
+          component: () => import('@/views/pages/admin/TeamManage/TeamManage1.vue'),
+        },
+        {
+          name: '운영팀 관리 2',
+          path: '/admin/team/no2',
+          component: () => import('@/views/pages/admin/TeamManage/TeamManage2.vue'),
+        },
+        {
+          name: '통계',
+          path: '/admin/chart',
+          component: () => import('@/views/pages/admin/StatisticsChart.vue')
+        }
       ],
+    },
+    {
+      path: '/client',
+      name: '사용자 페이지',
+      component: () => import('@/components/ClientIndex'),
+      children: [
+        {
+          name: '사용자 시작 페이지',
+          path: '',
+          redirect: '/client/main',
+        },
+        {
+          name: '사용자 메인 페이지',
+          path: '/client/main',
+          component: () => import('@/views/pages/client/ClientMain'),
+        },
+      ]
     },
   ],
 })

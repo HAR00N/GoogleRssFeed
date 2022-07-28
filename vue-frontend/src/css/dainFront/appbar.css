@@ -6,3 +6,7 @@
 .btn-drawer::before {
     display: none;
 }
+
+.logo::before {
+    display: none;
+}

@@ -5,10 +5,8 @@
   color="#67A588"
   clipped
   app
+  permanent
   >
-	
-	<!-- <user-profile :expandOnHover="expandOnHover"/> -->
-	
 	<v-list 
 		v-for="item in menuList" 
 		:key="item.idx"
@@ -23,7 +21,7 @@
 			:ripple="false"
 			:target="item.target"
 			active-class="menulist teal--text"
-			class="ml-4 rounded-l-xl"
+			class="ml-1 rounded-l-xl"
 			>
 			<v-list-item-icon>
 				<v-icon>{{item.icon}}</v-icon>
@@ -40,12 +38,12 @@
 			:prepend-icon="item.icon"
 			no-action
 			active-class=""
-			class="ml-4 pr-0"
+			class="ml-1 pr-0"
 			color="white"
 			:ripple="false"
 			>
 			<template v-slot:activator>
-				<v-list-item-content>
+				<v-list-item-content >
 					<v-list-item-title v-text="item.title"></v-list-item-title>
 				</v-list-item-content>
 			</template>
@@ -71,10 +69,8 @@
 </template>
 
 <script>
-// import UserProfile from '@/components/UserProfile.vue'
 export default {
 	components: {
-		// UserProfile
 	},
 	props: {
 		expandOnHover: {
@@ -82,45 +78,68 @@ export default {
 			default: false,
 		},
 	},
+	watch: {
+		expandOnHover: function () {
+			this.setHoverStyle();
+		}
+	},
+	methods: {
+		setHoverStyle: function () {
+			let vm = this;
+			if (vm.expandOnHover) {
+				vm.hoverStyle = "hoverStyle";
+			} else {
+				vm.hoverStyle = null;
+			}
+		},
+		setExpandStyle: function () {
+			let vm = this;
+			vm.hoverStyle = "expandStyle"
+		}
+	},
 	data: () => ({
+		hoverStyle: null,
 		menuList: [
 			{
 				idx: 1,
-				icon: 'mdi-home',
-				title: 'Home',
+				icon: 'mdi-view-dashboard',
+				title: '대시보드',
 				active: false,
-				to: '/',
+				to: '/admin/dashboard',
 			},
 			{
 				idx: 2,
-				icon: 'mdi-pencil',
-				title: 'SR 처리',
-				active: false,
-				to: '/pages/ServiceHandle',
-			},
-			{
-				idx: 3,
-				icon: 'mdi-clipboard-outline',
-				title: 'SR',
+				icon: 'mdi-cog-outline',
+				title: '시스템 관리',
 				active: false,
 				child: [
-					{idx: 1, title: 'SR 접수', to: '/pages/SR/ServiceRequest'},
-					{idx: 2, title: 'SR 민원', to: '/pages/SR/ServiceComplain'},
+					{ idx: 1, title: '사용자 관리', to: '/admin/system/user' },
+					{ idx: 2, title: '권한 관리', to: '/admin/system/role' },
 				]
 			},
 			{
-				idx: 4,
-				icon: 'mdi-newspaper-variant-outline',
-				title: 'Google News',
+				idx: 3,
+				icon: 'mdi-pencil',
+				title: 'SR 처리',
 				active: false,
-				to: '/pages/GoogleNews',
+				to: '/admin/sr',
+			},
+			{
+				idx: 4,
+				icon: 'mdi-clipboard-outline',
+				title: '운영팀 관리',
+				active: false,
+				child: [
+					{idx: 1, title: '운영팀 관리 1', to: '/admin/team/no1'},
+					{idx: 2, title: '운영팀 관리 2', to: '/admin/team/no2'},
+				]
 			},
 			{
 				idx: 5,
-				icon: 'mdi-github',
-				title: 'HAR00N',
-				// href: 'https://github.com/HAR00N',
-				target: '_blank',
+				icon: 'mdi-chart-bar',
+				title: '통계',
+				active: false,
+				to: '/admin/chart'
 			},
 		]
 	}),
@@ -128,6 +147,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+	.v-navigation-drawer--mini-variant {
+		width: 65px !important;
+	}
+	.v-navigation-drawer--mini-variant .v-navigation-drawer__content .v-list {
+		padding-left: 0px !important;
+	}
 </style>

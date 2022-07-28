@@ -1,7 +1,9 @@
 <template>
-  <v-card>
-    민원 넣고 싶어요
-  </v-card>
+  <div>
+    <v-card>
+        운영팀 관리 2
+    </v-card>
+  </div>
 </template>
 
 <script>

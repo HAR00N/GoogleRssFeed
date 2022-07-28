@@ -19,12 +19,14 @@
     </v-btn>
 
     <div class="d-flex align-center">
-      <v-img alt= "Dain Logo"
-      class="color-logo"
-      contain
-      src="@/assets/dainleaders_white.svg"
-      width="160"
-      />
+      <v-btn elevation="0" class="pl-0" to="/" color="transparent" :ripple="false">
+        <v-img alt= "Dain Logo"
+        class="color-logo"
+        contain
+        src="@/assets/dainleaders_white.svg"
+        width="160"
+        />
+      </v-btn>
     </div>
 
     <v-spacer></v-spacer>
@@ -34,6 +36,7 @@
       class="mr-4"
       rounded
       elevation="0"
+      to="/client"
     >
       <v-icon color="white">mdi-open-in-new</v-icon>
       <span class="ml-2 white--text">Client Page</span>
@@ -66,6 +69,14 @@ export default {
 }
 </script>
 
-<style>
+<style scope>
 
-</style>
+.theme--light.v-btn:focus::before {
+  display: none;
+}
+.theme--light.v-btn:hover::before {
+  display: none;
+}
+
+</style> 
+

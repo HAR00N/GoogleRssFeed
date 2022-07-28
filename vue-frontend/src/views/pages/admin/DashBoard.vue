@@ -1,7 +1,9 @@
 <template>
-  <v-card>
-    SR을 처리해보야오
-  </v-card>
+  <div>
+    <v-card>
+        대시보드
+    </v-card>
+  </div>
 </template>
 
 <script>

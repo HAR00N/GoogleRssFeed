@@ -1,7 +1,9 @@
 <template>
-  <v-card>
-    신청합니다
-  </v-card>
+  <div>
+    <v-card>
+        사용자 관리
+    </v-card>
+  </div>
 </template>
 
 <script>
